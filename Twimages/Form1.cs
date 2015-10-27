@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,6 +36,7 @@ namespace Twimages
                 try
                 {
                     BearerToken = OAuth2.GetToken(ConsumerKey, ConsumerSecret).BearerToken;
+                    Properties.Settings.Default.Save();
                 }
                 catch (Exception e)
                 {
@@ -47,11 +45,6 @@ namespace Twimages
                 }
             Token = OAuth2Token.Create(ConsumerKey, ConsumerSecret, BearerToken);
             toolStripTextBox1.Focus();
-        }
-
-        ~Form1()
-        {
-            Properties.Settings.Default.Save();
         }
 
         void LoadImage()
@@ -76,7 +69,7 @@ namespace Twimages
             }
             catch(Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show(e.Message);
             }
           
         }

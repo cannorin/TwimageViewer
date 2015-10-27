@@ -194,6 +194,7 @@
             // 
             this.trackBar1.BackColor = System.Drawing.Color.Black;
             this.trackBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackBar1.Enabled = false;
             this.trackBar1.Location = new System.Drawing.Point(0, 0);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(326, 25);
